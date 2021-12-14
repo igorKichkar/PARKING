@@ -1,0 +1,42 @@
+{% extends 'parking/base.html' %}
+
+{% block content %}
+    <div class='row main_content'>
+        <div class="col-12 col-sm-10 col-lg-8 sort">
+            <br>
+            <p>To add a new parking space, enter its number:</p>
+
+            <form class="form-inline" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">
+                    Add
+                </button>
+            </form>
+
+            <br>
+            <table class="table table-striped">
+                <tbody>
+                <thead>
+                <tr>
+                    <th scope="col">Number space</th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                {% for i in space %}
+                    <tr>
+                        <td>{{ i.number }}</td>
+                        <td class="table_list_of_places"><a href="{% url 'delete_space' place_number=i.pk %}"
+                                                            class="btn btn-outline-danger btn-sm">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+            <p><a href="#">{{ i.number }}</a></p>
+
+        </div>
+    </div>
+
+{% endblock content %}

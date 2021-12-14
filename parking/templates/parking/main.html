@@ -1,0 +1,17 @@
+{% extends 'parking/base.html' %}
+
+{% block content %}
+    <div class='row main_content'>
+        <div class="col-12 col-sm-10 col-lg-8 sort">
+            <br>
+            <h4>To book parking, please fill in the details:</h4>
+            <br>
+            <form class="form-inline" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Continue</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

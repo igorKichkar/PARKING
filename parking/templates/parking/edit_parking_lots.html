@@ -1,0 +1,26 @@
+{% extends 'parking/base.html' %}
+
+{% block content %}
+    <ul class="messages" id="messages-list">
+        {% if messages %}
+            {% for message in messages %}
+                <li>
+                    {% if message.tags %}
+                        <div class="alert alert-{{ message.tags }} msg fade show" role="alert">{{ message }}</div>
+                    {% else %}
+                        <div class="alert alert-info msg fade show" role="alert">{{ message }}</div>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        {% endif %}
+    </ul>
+    <h3>Edit parking space for {{ info_user }}</h3>
+    <br>
+    <a href="{% url 'delete_rezerv' place_number=rezerv_space.pk %}" class="btn btn-danger">Delete rezerv</a>
+    <br><br>
+    <form class="form-inline" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Apply</button>
+    </form>
+{% endblock content %}
