@@ -1,11 +1,11 @@
 <h1 align="center">PARKING</h1>.
-<h2>The project was created based on the Flask framework.</h2>
+<h2>The project was created based on the Django framework.</h2>
 
 PARKING app allows you to manage parking spaces.
 
 The administrator can appoint a user as a manager.
-Login: admin
-Password: 1
+- Login: admin
+- Password: 1
 
 ### Employees can:
 - Register on the site.
